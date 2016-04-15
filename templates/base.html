@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
     <link rel="stylesheet" href="http://picturebag.qiniudn.com/blog.css">
-    {# <link rel="stylesheet" href="http://picturebag.qiniudn.com/monokai.css"> #}
+    {# <link rel="stylesheet" href="http://7xt14s.com2.z0.glb.clouddn.com/monokai.css"> #}
 </head>
 <body>
 <div id="layout" class="pure-g">
@@ -24,7 +24,7 @@
                         <a class="button-success pure-button" href="/">主页</a>
                     </li>
                     <li class="nav-item">
-                        <a class="button-success pure-button" href="/">归档</a>
+                        <a class="button-success pure-button" href="{% url 'archives' %}">所有文章</a>
                     </li>
                     <li class="nav-item">
                         <a class="pure-button" href="https://github.com/call-fold">Github</a>
@@ -33,11 +33,12 @@
                         <a class="pure-button" href="https://www.facebook.com/lingfeng.su.5">Facebook</a>
                     </li>
                     <li class="nav-item">
-                        <a class="button-success pure-button" href="/">专题</a>
+                        <a class="button-success pure-button" href="{% url 'about_me' %}">About Me</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="button-success pure-button" href="/">About Me</a>
-                    </li>
+                    <br></br>
+                    <form class="pure-form" action="/search/" method="get">
+                    <input class="pure-input-3-3" type="text" name="s" placeholder="search">
+                    </form>
                 </ul>
             </nav>
         </div>
