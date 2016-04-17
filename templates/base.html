@@ -1,5 +1,7 @@
 <!--base.html-->
 <!doctype html>
+
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -10,7 +12,7 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
     <link rel="stylesheet" href="http://picturebag.qiniudn.com/blog.css">
-    {# <link rel="stylesheet" href="http://7xt14s.com2.z0.glb.clouddn.com/monokai.css"> #}
+    <link rel="stylesheet" href="{% static 'css/emacs.css' %}">
 </head>
 <body>
 <div id="layout" class="pure-g">

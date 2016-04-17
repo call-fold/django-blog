@@ -99,12 +99,12 @@ USE_TZ = True
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = ''
-STATIC_PATH = os.path.join(BASE_DIR, 'static').replace('\\', '/')
+STATIC_PATH = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'static').replace('\\', '/'),
+    STATIC_PATH,
 )
