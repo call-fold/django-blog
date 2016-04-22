@@ -1,4 +1,3 @@
-<!--base.html-->
 <!doctype html>
 
 {% load staticfiles %}
@@ -11,8 +10,8 @@
     <title>Lingfeng Su's Blog</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
-    <link rel="stylesheet" href="http://picturebag.qiniudn.com/blog.css">
-    <link rel="stylesheet" href="{% static 'css/emacs.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/paraiso-light.css' %}">
 </head>
 <body>
 <div id="layout" class="pure-g">
@@ -42,10 +41,10 @@
                     <li class="nav-item">
                         <a class="button-success pure-button" href="{% url "RSS" %}">RSS</a>  
                     </li>
-                    <br></br>
-                    <form class="pure-form" action="/search/" method="get">
-                    <input class="pure-input-3-3" type="text" name="s" placeholder="search">
-                    </form>
+                    {# <br></br> #}
+                    {# <form class="pure-form" action="/search/" method="get"> #}
+                    {# <input class="pure-input-1-2" type="text" name="s" placeholder="search"> #}
+                    {# </form> #}
                 </ul>
             </nav>
         </div>

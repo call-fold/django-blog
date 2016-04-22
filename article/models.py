@@ -12,7 +12,7 @@ class Article(models.Model):
 
     def get_absolute_url(self):  # 获取URL并转换成url的表示格式
         path = reverse('detail', kwargs={'id': self.id})
-        return "http://127.0.0.1:8000%s" % path
+        return "http://192.168.1.123:8000%s" % path
 
     # python2使用__unicode__, python3使用__str__
     def __str__(self):
