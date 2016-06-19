@@ -4,6 +4,8 @@
 {% block content %}
 {% load disqus_tags %}
 
+ <title>Lingfeng Su's Blog</title>
+
 <div class="posts">
     {% for post in post_list %}
         <section class="post">
@@ -17,7 +19,7 @@
 
                 <div class="post-description">
                     <p>
-                        {{ post.content|custom_markdown|truncatewords:5 }}
+                        {{ post.content|custom_markdown|truncatewords_html:100 }}
                     </p>
                 </div>
                 <a class="pure-button" href="{% url "detail" id=post.id %}">Read More >>> </a>

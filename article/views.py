@@ -84,3 +84,7 @@ class RSSFeed(Feed):
 
     def item_description(self, item):
         return item.content
+
+
+def laboratory(request):
+    return render(request, 'laboratory.html')

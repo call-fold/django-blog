@@ -3,11 +3,13 @@
 {% load disqus_tags %}
 
 {% block content %}
+
+<title class="post-title">{{ post.title }}</title>
+
 <div class="posts">
         <section class="post">
             <header class="post-header">
                 <h2 class="post-title">{{ post.title }}</h2>
-
                     <p class="post-meta">
                         Time:  <a class="post-author" href="#">{{ post.date_time |date:"Y M d"}}</a> <a class="post-category post-category-js" href="{% url "search_tag" tag=post.category %}">{{ post.category|title }}</a>
                     </p>

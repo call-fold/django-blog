@@ -14,7 +14,6 @@ class Article(models.Model):
         path = reverse('detail', kwargs={'id': self.id})
         return "http://127.0.0.1:8000%s" % path
 
-    # python2使用__unicode__, python3使用__str__
     def __str__(self):
         return self.title
 

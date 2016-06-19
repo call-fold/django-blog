@@ -32,21 +32,22 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = (
-    'bootstrap_admin',  # 一定要放在`django.contrib.admin`前面
+    # 'bootstrap_admin',  # 一定要放在`django.contrib.admin`前面
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'article',
     'disqus',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-    'django.core.context_processors.request',
-)
-BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
+# TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+#     'django.core.context_processors.request',
+# )
+# BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 TEMPLATE_DIRS = (
@@ -81,7 +82,7 @@ DATABASES = {
         'NAME': 'mysite',
         'USER': 'slf',
         'PASSWORD': 'slf',
-        'HOST': '0.0.0.0',
+        'HOST': '139.129.41.15',
         'PORT': '3306',
         'OPTIONS': {
             'autocommit': True,
