@@ -1,6 +1,9 @@
 # Django Blog
 </br>
 </br>
+
+![my_blog](https://cloud.githubusercontent.com/assets/12811161/16178751/bc809ae0-3683-11e6-8f34-c1d5cc56d2de.png)
+
 ## Requirement
 
  - Python (3.4.3)
