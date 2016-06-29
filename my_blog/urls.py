@@ -11,7 +11,7 @@ urlpatterns = patterns('',  # Examples:
                        url(r'^(?P<id>\d+)/$', 'article.views.detail', name='detail'),
                        url(r'^archives/$', 'article.views.archives', name='archives'),
                        url(r'^aboutme/$', 'article.views.about_me', name='about_me'),
-                       url(r'^tag(?P<tag>\w+)/$', 'article.views.search_tag', name='search_tag'),
+                       url(r'^tag(?P<tag>\S+)/$', 'article.views.search_tag', name='search_tag'),
                        url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
                            {'document_root': settings.STATIC_PATH, 'show_indexes': True}),
                        url(r'^search/$', 'article.views.blog_search', name='search'),

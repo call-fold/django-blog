@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'mysite',
         'USER': 'slf',
         'PASSWORD': 'slf',
-        'HOST': '139.129.41.15',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {
             'autocommit': True,
