@@ -99,3 +99,68 @@ ENV/
 
 # sftp configuration file
 sftp-config.json
+
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @call-fold
+ Unwatch 1
+  Star 0
+  Fork 14,518 call-fold/gitignore
+forked from github/gitignore
+ Code  Pull requests 0  Pulse  Graphs  Settings
+Branch: master Find file Copy pathgitignore/Global/JetBrains.gitignore
+2141c82  on 26 Feb
+@rocketraman rocketraman Update Jetbrains .gitignore dataSources.local.xml
+18 contributors @samskiter @arcresu @LazarusX @thunsaker @victorhaggqvist @yatskevich @RobertoNovelo @jturmel @rocketraman @ssinss @GingerGeek @Fuhrmann @ergl @drothmaler @Nainterceptor @cemmersb @tsteinholz @shiftkey
+RawBlameHistory    45 lines (34 sloc)  900 Bytes
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# User-specific stuff:
+.idea/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+
+# Sensitive or high-churn files:
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+
+# Gradle:
+.idea/gradle.xml
+.idea/libraries
+
+# Mongo Explorer plugin:
+.idea/mongoSettings.xml
+
+## File-based project format:
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+Status API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
