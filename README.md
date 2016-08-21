@@ -31,5 +31,9 @@
  - CSS采用yahoo的Pure, 具体配置参考[Pure主页](http://purecss.io/)
  - 开发环境选择JetBrains的[PyCharm](https://www.jetbrains.com/pycharm/)
  - 部署方式: web应用(Django)+web应用服务器(uWSGI)+web服务器软件(nginx), 动态请求由uWSGI传递给Django, 静态请求由nginx处理
+ 
+ ## Update
+ 
+  + 2016.08.21: 增加nginx和uWSGI
 
 
