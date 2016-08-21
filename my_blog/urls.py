@@ -17,4 +17,4 @@ urlpatterns = patterns('',  # Examples:
                        url(r'^search/$', 'article.views.blog_search', name='search'),
                        # 新添加的urlconf, 并将name设置为RSS, 方便在模板中使用url
                        url(r'^feed/$', RSSFeed(), name="RSS"),
-                       url(r'^laboratory/$', 'article.views.laboratory', name='laboratory'))
+                       url(r'^sites/$', 'article.views.sites', name='sites'))

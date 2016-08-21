@@ -88,3 +88,6 @@ class RSSFeed(Feed):
 
 def laboratory(request):
     return render(request, 'laboratory.html')
+
+def sites(request):
+    return render(request, 'sites.html')

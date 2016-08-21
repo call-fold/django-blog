@@ -32,7 +32,7 @@
                         <a class="pure-button" href="https://github.com/call-fold">Github</a>
                     </li>
                     <li class="nav-item">
-                        <a class="pure-button" href="https://www.facebook.com/lingfeng.su.5">Facebook</a>
+                        <a class="button-success pure-button" href="{% url "sites" %}">Sites</a>
                     </li>
                     <br></br>
                     <li class="nav-item">
@@ -42,10 +42,6 @@
                         <a class="button-success pure-button" href="{% url "RSS" %}">RSS</a>  
                     </li>
                     <br></br>
-                    <!--<li class="nav-item">-->
-                        <!--<a class="button-success pure-button" href="{% url "laboratory" %}">Laboratory</a>-->
-                    <!--</li>-->
-                    <!--<br></br>-->
                     <form class="pure-form" action="/search/" method="get">
                     <input class="pure-input-1-2" type="text" name="s" placeholder="search">
                     </form>
@@ -61,8 +57,8 @@
             <div class="footer">
                 <div class="pure-menu pure-menu-horizontal pure-menu-open">
                     <ul>
-                        <li><a href="">About Me</a></li>
-                        <li><a href="https://twitter.com/call_fold/">Twitter</a></li>
+                        <li><a href="http://127.0.0.1:8000/aboutme">About Me</a></li>
+                        <li><a href="https://www.facebook.com/lingfeng.su.5">Facebook</a></li>
                         <li><a href="http://github.com/yahoo/pure/">About Pure</a></li>
                     </ul>
                 </div>
