@@ -24,4 +24,5 @@ urlpatterns = patterns('',
                            name='search'),
                        # 新添加的urlconf, 并将name设置为RSS, 方便在模板中使用url
                        url(r'^feed/$', RSSFeed(), name="RSS"),
+                       url(r'^sites/$', 'article.views.sites', name='sites')
                        )
