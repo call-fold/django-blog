@@ -85,5 +85,5 @@ class RSSFeed(Feed):
     def item_description(self, item):
         return item.content
 
-    def sites(request):
+def sites(request):
     return render(request, 'sites.html')
