@@ -87,3 +87,6 @@ class RSSFeed(Feed):
 
 def sites(request):
     return render(request, 'sites.html')
+
+def googleSEO(request):
+    return render(request, 'google0ddbc93a09800a50.html')
