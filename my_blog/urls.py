@@ -25,5 +25,7 @@ urlpatterns = patterns('',
                        # 新添加的urlconf, 并将name设置为RSS, 方便在模板中使用url
                        url(r'^feed/$', RSSFeed(), name="RSS"),
                        url(r'^sites/$', 'article.views.sites', name='sites'),
-                       url(r'^google0ddbc93a09800a50.html/$', 'article.views.googleSEO', name='googleSEO'),
+                       url(r'^google0ddbc93a09800a50.html/$', 'article.views.google_seo', name='google_seo'),
+                       url(r'^laboratory/$', 'article.views.laboratory', name='laboratory'),
+                       url(r'^movie_search/$', 'article.views.movie_search', name='movie_search')
                        )

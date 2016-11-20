@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load custom_markdown %}
+
+{% block content %}
+
+    <title>MovieSearch</title>
+
+    <div class="search">
+        <form class="pure-form" action="/search/" method="get">
+            <input class="pure-input-1-2" type="text" name="s" placeholder="输入要搜索的电影">
+        </form>
+    </div><!-- /.blog-post -->
+{% endblock %}

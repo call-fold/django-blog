@@ -1,4 +1,3 @@
-# 现在你的views.py应该是这样
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from article.models import Article
@@ -6,6 +5,7 @@ from datetime import datetime
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.syndication.views import Feed
+
 
 # Create your views here.
 
@@ -85,8 +85,18 @@ class RSSFeed(Feed):
     def item_description(self, item):
         return item.content
 
+
 def sites(request):
     return render(request, 'sites.html')
 
-def googleSEO(request):
+
+def laboratory(request):
+    return render(request, 'laboratory.html')
+
+
+def movie_search(request):
+    return render(request, 'movie_search.html')
+
+
+def google_seo(request):
     return render(request, 'google0ddbc93a09800a50.html')
