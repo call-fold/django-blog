@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.template.context_processors import csrf
+
+from MovieCrawler.MovieSearch import get_search_url, get_total_movie_download_list
 from article.models import Article
 from datetime import datetime
 from django.http import Http404
@@ -52,6 +55,18 @@ def search_tag(request, tag):
     return render(request, 'tag.html', {'post_list': post_list})
 
 
+def movie_search(request):
+    ctx = {}
+    ctx.update(csrf(request))
+    if request.POST:
+        input_name = request.POST['m']
+        my_search_index_url = get_search_url('http://s.dydytt.net/plus/search.php?kwtype=0&searchtype=title&keyword=',
+                                             input_name)
+        search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
+        ctx['rlt'] = search_movie_download_list
+    return render(request, "movie_search.html", ctx)
+
+
 def blog_search(request):
     if 's' in request.GET:
         s = request.GET['s']
@@ -94,7 +109,7 @@ def laboratory(request):
     return render(request, 'laboratory.html')
 
 
-def movie_search(request):
+def movie_page(request):
     return render(request, 'movie_search.html')
 
 

@@ -27,5 +27,6 @@ urlpatterns = patterns('',
                        url(r'^sites/$', 'article.views.sites', name='sites'),
                        url(r'^google0ddbc93a09800a50.html/$', 'article.views.google_seo', name='google_seo'),
                        url(r'^laboratory/$', 'article.views.laboratory', name='laboratory'),
+                       url(r'^movie_page/$', 'article.views.movie_page', name='movie_page'),
                        url(r'^movie_search/$', 'article.views.movie_search', name='movie_search')
                        )
