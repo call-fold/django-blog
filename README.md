@@ -1,8 +1,5 @@
 # Django Blog
-</br>
-## 传送门:
-##[call-fold之家](http://www.slfweb.com)
-</br>
+## 传送门: [call-fold之家](http://www.slfweb.com)
 ![my_blog](https://cloud.githubusercontent.com/assets/12811161/20725349/772384c2-b6ac-11e6-9ae0-cf019f6dc8cc.png)
 </br>
 
@@ -20,7 +17,6 @@
  - MySQL
  - nginx
  
-</br>
 ## Pip List
 
  - Django (1.8.2)
@@ -29,7 +25,6 @@
  - PyMySQL (0.7.2)
  - uWSGI (2.0.13.1)
  
-</br>
 ## Tips
 
  - 本博客基本参考Andrew_liu的[Django博客教程](https://www.gitbook.com/book/andrew-liu/django-blog/details)进行搭建
