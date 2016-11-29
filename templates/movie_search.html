@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load custom_markdown %}
+{% load disqus_tags %}
+
+{% block content %}
+
+    <title>MovieSearch</title>
+
+    <h1><strong>电影搜索器</strong></h1>
+
+    <div class="pure-u-1">
+        <form class="pure-form" action="/movie_search/" method="post">
+            <fieldset class="pure-group">
+                {% csrf_token %}
+                <input class="pure-input-1" type="text" name="m" placeholder="输入要搜索的电影">
+                <br>
+                <textarea class="pure-input-1" rows="10" placeholder="输出的电影下载链接...">{{ rlt }}</textarea>
+            </fieldset>
+        </form>
+    </div>
+
+    <br>
+    <br>
+
+    {% disqus_show_comments %}
+    {% disqus_num_replies %}
+    {% disqus_recent_comments shortname num_items excerpt_length hide_avatars avatar_size %}
+
+    <div id="disqus_thread"></div>
+
+{% endblock %}

@@ -1,11 +1,14 @@
-# 现在你的views.py应该是这样
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.template.context_processors import csrf
+
+from MovieCrawler.MovieSearch import get_search_url, get_total_movie_download_list
 from article.models import Article
 from datetime import datetime
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.syndication.views import Feed
+
 
 # Create your views here.
 
@@ -52,6 +55,24 @@ def search_tag(request, tag):
     return render(request, 'tag.html', {'post_list': post_list})
 
 
+def movie_search(request):
+    ctx = {}
+    ctx.update(csrf(request))
+    if request.POST:
+        input_name = request.POST['m']
+        my_search_index_url = get_search_url('http://s.dydytt.net/plus/search.php?kwtype=0&searchtype=title&keyword=',
+                                             input_name)
+        search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
+
+        out_str = ''
+        for download_link in search_movie_download_list:
+            out_str += download_link + '\n' + '\n'
+
+        ctx['rlt'] = out_str
+
+    return render(request, "movie_search.html", ctx)
+
+
 def blog_search(request):
     if 's' in request.GET:
         s = request.GET['s']
@@ -86,8 +107,17 @@ class RSSFeed(Feed):
         return item.content
 
 
+def sites(request):
+    return render(request, 'sites.html')
+
+
 def laboratory(request):
     return render(request, 'laboratory.html')
 
-def sites(request):
-    return render(request, 'sites.html')
+
+def movie_page(request):
+    return render(request, 'movie_search.html')
+
+
+def google_seo(request):
+    return render(request, 'google0ddbc93a09800a50.html')
