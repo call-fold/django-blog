@@ -65,8 +65,11 @@ def movie_search(request):
         search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
 
         out_str = ''
-        for download_link in search_movie_download_list:
-            out_str += download_link + '\n' + '\n'
+        if len(search_movie_download_list) != 0:
+            for download_link in search_movie_download_list:
+                out_str += download_link + '\n' + '\n'
+        else:
+            out_str += '没有找到合适的资源'
 
         ctx['rlt'] = out_str
 
