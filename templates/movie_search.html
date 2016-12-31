@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% load custom_markdown %}
+{% load disqus_tags %}
+
+{% block content %}
+
+    <title>MovieSearch</title>
+
+    <h1><strong>电影搜索器</strong></h1>
+
+    {#    <div class="pure-u-1">#}
+    {#        <form class="pure-form" action="/movie_search/" method="post">#}
+    {#            <fieldset class="pure-group">#}
+    {#                {% csrf_token %}#}
+    {#                <input class="pure-input-1" type="text" name="m" placeholder="输入要搜索的电影">#}
+    {#                <br>#}
+    {#                <textarea class="pure-input-1" rows="10" placeholder="输出的电影下载链接...">{{ rlt }}</textarea>#}
+    {#            </fieldset>#}
+    {#        </form>#}
+    {#    </div>#}
+
+    <form class="pure-form" method="post" id="movie_search">
+        <fieldset>
+            {% csrf_token %}
+            <input class="pure-input-2-3" type="text" id="input_movie_name" placeholder="输入要搜索的电影">
+            <button type="submit" class="pure-button pure-button-primary">搜索资源库</button>
+        </fieldset>
+        <textarea class="pure-input-1" id="message" rows="10" placeholder="输出的电影下载链接..."></textarea>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#movie_search").submit(function (event) {
+                var input_movie_name = $("#input_movie_name").val();
+                $.ajax({
+                    type: "POST",
+                    url: "/movie_input_post/",
+                    data: {
+                        input_movie_name: input_movie_name
+                    },
+                    success: function () {
+                        $.getJSON("{% url 'ajax-list' %}", function (ret) {
+                            //返回值 ret 在这里是一个列表
+                            $("#message").empty()
+                            for (var i = 0; i < ret.length; i++) {
+                                // 把 ret 的每一项显示在网页上
+                                $("#message").append(ret[i]);
+                            }
+                        })
+                    }
+                });
+                return false;
+            });
+        });
+
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+        $.ajaxSetup({
+            beforeSend: function (xhr, settings) {
+                var csrftoken = getCookie('csrftoken');
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+    </script>
+
+    <br>
+    <br>
+
+    {% disqus_show_comments %}
+    {% disqus_num_replies %}
+    {% disqus_recent_comments shortname num_items excerpt_length hide_avatars avatar_size %}
+
+    <div id="disqus_thread"></div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load custom_markdown %}
+{% load disqus_tags %}
+
+{% block content %}
+
+    <title>Laboratory</title>
+
+    <h1><strong>实验室项目列表</strong></h1>
+
+    <div class="projects">
+        <div>
+            <style scoped>
+
+                .button-xlarge {
+                    font-size: 200%;
+                }
+
+            </style>
+
+            <a type="submit" class="button-xlarge pure-button pure-button-primary" href="{% url 'movie_search' %}">
+                电影搜索
+            </a>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    {% disqus_show_comments %}
+    {% disqus_num_replies %}
+    {% disqus_recent_comments shortname num_items excerpt_length hide_avatars avatar_size %}
+
+    <div id="disqus_thread"></div>
+
+{% endblock %}
