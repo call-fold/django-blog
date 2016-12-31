@@ -1,16 +1,17 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.template.context_processors import csrf
 
 from MovieCrawler.MovieSearch import get_search_url, get_total_movie_download_list
 from article.models import Article
-from datetime import datetime
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.syndication.views import Feed
 
-
 # Create your views here.
+
+# global
+input_movie_name = ''
 
 
 def home(request):
@@ -55,22 +56,53 @@ def search_tag(request, tag):
     return render(request, 'tag.html', {'post_list': post_list})
 
 
-def movie_search(request):
-    ctx = {}
-    ctx.update(csrf(request))
-    if request.POST:
-        input_name = request.POST['m']
-        my_search_index_url = get_search_url('http://s.dydytt.net/plus/search.php?kwtype=0&searchtype=title&keyword=',
-                                             input_name)
-        search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
+# def movie_search(request):
+#     ctx = {}
+#     ctx.update(csrf(request))
+#     if request.POST:
+#         input_name = request.POST['m']
+#         my_search_index_url = get_search_url('http://s.dydytt.net/plus/search.php?kwtype=0&searchtype=title&keyword=',
+#                                              input_name)
+#         search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
+#
+#         out_str = ''
+#         if len(search_movie_download_list) != 0:
+#             for download_link in search_movie_download_list:
+#                 out_str += download_link + '\n' + '\n'
+#         else:
+#             out_str += '没有找到合适的资源'
+#
+#         ctx['rlt'] = out_str
+#
+#     return render(request, "movie_search.html", ctx)
 
-        out_str = ''
+
+def movie_input_post(request):
+    if request.is_ajax():
+        if request.POST:
+            global input_movie_name
+            input_movie_name = request.POST['input_movie_name']
+        message = "Yes, AJAX!"
+    else:
+        message = "Not Ajax"
+    return HttpResponse(message)
+
+
+def ajax_list(request):
+    input_name = input_movie_name
+    my_search_index_url = get_search_url('http://s.dydytt.net/plus/search.php?kwtype=0&searchtype=title&keyword=',
+                                         input_name)
+    search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
+    out_list = []
+    if len(search_movie_download_list) != 0:
         for download_link in search_movie_download_list:
-            out_str += download_link + '\n' + '\n'
+            out_list.append(download_link)
+            out_list.append('\n')
+            out_list.append('\n')
+    else:
+        out_list.append('没有找到合适的资源')
 
-        ctx['rlt'] = out_str
-
-    return render(request, "movie_search.html", ctx)
+    return JsonResponse(out_list, safe=False)
 
 
 def blog_search(request):
@@ -115,7 +147,7 @@ def laboratory(request):
     return render(request, 'laboratory.html')
 
 
-def movie_page(request):
+def movie_search(request):
     return render(request, 'movie_search.html')
 
 
