@@ -100,7 +100,7 @@ def ajax_list(request):
             out_list.append('\n')
             out_list.append('\n')
     else:
-        out_list.append('没有找到合适的资源')
+        out_list.append('没有找到合适的资源, 我也很无奈啊...╮(╯﹏╰)╭')
 
     return JsonResponse(out_list, safe=False)
 
