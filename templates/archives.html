@@ -8,7 +8,7 @@
 
 <div class="posts">
     {% if error %}
-        <h2 class="post-title">没有相关文章题目</a></h2>
+        <h2 class="post-title">没有相关文章题目</h2>
     {% else %}
     {% for post in post_list %}
         <section class="post">
@@ -24,10 +24,10 @@
     {% endif %}
 </div><!-- /.blog-post -->
 
-{% disqus_show_comments %}
-{% disqus_num_replies %}
-{% disqus_recent_comments shortname num_items excerpt_length hide_avatars avatar_size %}
-
-<div id="disqus_thread"></div>
+    {#{% disqus_show_comments %}#}
+    {#{% disqus_num_replies %}#}
+    {#{% disqus_recent_comments shortname num_items excerpt_length hide_avatars avatar_size %}#}
+    {##}
+    {#<div id="disqus_thread"></div>#}
 
 {% endblock %}

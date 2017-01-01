@@ -77,24 +77,63 @@
 </html>
 
 <script>
+
     /**
-     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-     */
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
     /*
      var disqus_config = function () {
-     this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
-
-        s.src = '//httpslfwebcom8000.disqus.com/embed.js';
-
+        s.src = '//http-slfweb-com.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments
-    powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+    Disqus.</a></noscript>
+
+<!-- 测试Disqus异步 Start-->
+{#<!-- Disqus的js代码 Start-->#}
+{#<script type="text/javascript">#}
+{#    var disqus_shortname = 'http-slfweb-com'; // required: replace example with your forum shortname#}
+{#    function toggleDisqusComments(container) {#}
+{#        if (jQuery(container).has("div").length > 0) {#}
+{#            jQuery(container).empty();#}
+{#            return;#}
+{#        }#}
+{#        var disqus_shortname = '{{ site.disqus.shortname }}';#}
+{#        var disqus_identifier = '{{page.id | remove:'/'}}';#}
+{#        var disqus_identifier = '{{page.id}}';#}
+{#        var disqus_title = '{{page.title}}';#}
+{#        var disqus_url = 'http://slfweb.com{{page.url}}';#}
+{#        var dsq = document.createElement('script');#}
+{#        dsq.type = 'text/javascript';#}
+{#        dsq.async = true;#}
+{#        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';#}
+{#        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);#}
+{#    }#}
+{#</script>#}
+{#<!-- 以下代码用于获取Disqus的评论条数 -->#}
+{##}
+{#<script type="text/javascript">#}
+{#    /* * * CONFIGURATION VARIABLES * * */#}
+{#    var disqus_shortname = 'http-slfweb-com';#}
+{##}
+{#    /* * * DON'T EDIT BELOW THIS LINE * * */#}
+{#    (function () {#}
+{#        var s = document.createElement('script');#}
+{#        s.async = true;#}
+{#        s.type = 'text/javascript';#}
+{#        s.src = '//' + disqus_shortname + '.disqus.com/count.js';#}
+{#        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);#}
+{#    }());#}
+{#</script>#}
+{##}
+{#<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>#}
+{#</noscript>#}
+{#<!-- Disqus的js代码 End-->#}

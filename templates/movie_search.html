@@ -35,6 +35,8 @@
         $(document).ready(function () {
             $("#movie_search").submit(function (event) {
                 var input_movie_name = $("#input_movie_name").val();
+                $("#message").empty();
+                $("#message").append("正在搜索....ε = = (づ′▽`)づ, 好慢啊~~");
                 $.ajax({
                     type: "POST",
                     url: "/movie_input_post/",
@@ -44,7 +46,7 @@
                     success: function () {
                         $.getJSON("{% url 'ajax-list' %}", function (ret) {
                             //返回值 ret 在这里是一个列表
-                            $("#message").empty()
+                            $("#message").empty();
                             for (var i = 0; i < ret.length; i++) {
                                 // 把 ret 的每一项显示在网页上
                                 $("#message").append(ret[i]);
