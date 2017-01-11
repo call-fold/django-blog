@@ -9,8 +9,8 @@
     <meta name="baidu-site-verification" content="0O8F7RJJRR"/>
     <meta name="baidu-site-verification" content="AOv5DTce5d"/>
     <title>call-fold之家</title>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     <link rel="stylesheet" href="{% static 'css/paraiso-light.css' %}">
 </head>
@@ -61,11 +61,20 @@
             {% block content %}
             {% endblock %}
             <div class="footer">
-                <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                <div class="pure-menu pure-menu-horizontal">
                     <ul>
-                        <li><a href="http://slfweb.com/aboutme">About Me</a></li>
-                        <li><a href="https://www.facebook.com/lingfeng.su.5">Facebook</a></li>
-                        <li><a href="http://github.com/yahoo/pure/">About Pure</a></li>
+                        <li class="pure-menu-item pure-menu-selected"><a href="https://slfweb.com/aboutme"
+                                                                         class="pure-menu-link">About
+                            Me</a></li>
+                        <li class="pure-menu-item pure-menu-selected"><a href="https://www.facebook.com/lingfeng.su.5"
+                                                                         class="pure-menu-link">Facebook</a></li>
+                        <li class="pure-menu-item pure-menu-selected"><a href="https://github.com/yahoo/pure/"
+                                                                         class="pure-menu-link">About
+                            Pure</a></li>
+                    </ul>
+                    <ul>
+                        <li class="pure-menu-item pure-menu-selected"><a class="pure-menu-link">备案号:
+                            闽ICP备16011961号-1</a></li>
                     </ul>
                 </div>
             </div>

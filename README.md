@@ -4,7 +4,8 @@
 </br>
 
 ## Update
- 
+
+ + 2017.1.11: 为站点添加SSL, http -> https
  + 2017.1.9: 解决markdown换行问题
  + 2017.1.1: 增加AJAX功能, jQuery实现
  + 2016.11.26: 增加**[实验室-电影搜索器](http://slfweb.com/movie_search/)**, 具体的项目请参考**[MovieCrawler](https://github.com/call-fold/MovieCrawler)**
