@@ -13,8 +13,7 @@ def get_movie_list(pattern):
     pattern = re.findall(r'b\'(.+?)\'', pattern)[0]
     list_title = strict_redis.keys(pattern)
     for title in list_title:
-        list_len = strict_redis.llen(title)
-        movie_list = strict_redis.lrange(title, 0, list_len)
+        movie_list = strict_redis.smembers(title)
         print(title + ' :')
         for movie in movie_list:
             print(movie)
