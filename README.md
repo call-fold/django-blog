@@ -5,7 +5,7 @@
 
 ## Update
 
- + 2017.02.13: **[实验室-电影搜索器](http://slfweb.com/movie_search/)**定时爬取全站数据, 清洗后从Redis中访问
+ + 2017.02.13: **[实验室-电影搜索器](http://slfweb.com/movie_search/), **定时爬取全站数据, 清洗后从Redis中访问
  + 2017.01.11: 为站点添加SSL, http -> https
  + 2017.01.09: 解决markdown换行问题
  + 2017.01.01: 增加AJAX功能, jQuery实现
