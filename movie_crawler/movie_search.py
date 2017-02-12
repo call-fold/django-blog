@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import common.crawler_to_html
+import common.common_movie_crawler
+import common.file_common
 import os
 import re
-
-from MovieCrawler.Common.CommonMovieCrawler import get_movie_download_list
-from MovieCrawler.Common.CrawlerToHTML import get_links_from_html_keyword, get_links_from_html_re
-from MovieCrawler.Common.FileCommon import write_result_to_txt
 
 
 def change_code_type(input_str, encode_type):
@@ -47,7 +46,7 @@ def delete_str_last_char(str):
 
 
 def get_all_pages(url, decode_type='utf-8'):
-    page_link_list = get_links_from_html_keyword(url, '/plus/search.php?keyword=', decode_type)
+    page_link_list = common.crawler_to_html.get_links_from_html_keyword(url, '/plus/search.php?keyword=', decode_type)
     all_real_page_link_list = []
     if page_link_list:
         last_page_link = page_link_list[len(page_link_list) - 1]
@@ -66,7 +65,7 @@ def get_all_pages(url, decode_type='utf-8'):
 
 
 def get_movie_list(url, decode_type='utf-8'):
-    movie_link_list = get_links_from_html_re(url, '/html/(\w*)/(\w*)/2', decode_type)
+    movie_link_list = common.crawler_to_html.get_links_from_html_re(url, '/html/(\w*)/(\w*)/2', decode_type)
     real_movie_link_list = list(map(compile_url_movie, movie_link_list))
     return real_movie_link_list
 
@@ -76,8 +75,8 @@ def get_total_movie_download_list(search_index_url, decode_type='utf-8', if_add_
     total_movie_link_list = []
     for page_link in page_link_list:
         total_movie_link_list += get_movie_list(page_link, decode_type)
-    total_movie_download_list = get_movie_download_list(total_movie_link_list, decode_type,
-                                                                                  if_add_title)
+    total_movie_download_list = common.common_movie_crawler.get_movie_download_list(total_movie_link_list, decode_type,
+                                                                                    if_add_title)
     return total_movie_download_list
 
 
@@ -88,8 +87,8 @@ def do_movie_search(input_name, store_dir_path):
     print(input_name)
     print('num of searched movies: ' + str(len(search_movie_download_list)))
     if len(search_movie_download_list) > 0:
-        write_result_to_txt(search_movie_download_list, store_dir_path,
-                                              input_name + '.txt')
+        common.file_common.write_result_to_txt(search_movie_download_list, store_dir_path,
+                                               input_name + '.txt')
     else:
         print('can not find links of %s' % input_name)
     print()
@@ -101,8 +100,8 @@ def main():
                                          input_name)
     search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
     print('num of searched movies: ' + str(len(search_movie_download_list)))
-    write_result_to_txt(search_movie_download_list, os.path.abspath('.') + '/search_movies',
-                                          input_name + '.txt')
+    common.file_common.write_result_to_txt(search_movie_download_list, os.path.abspath('.') + '/search_movies',
+                                           input_name + '.txt')
 
 
 if __name__ == '__main__':

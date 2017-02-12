@@ -4,7 +4,7 @@
 import os
 import redis
 
-from MovieCrawler.MovieSearch import do_movie_search
+from movie_search import do_movie_search
 
 
 def get_list_from_redis(_table_name):
