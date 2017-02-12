@@ -5,9 +5,10 @@
 
 ## Update
 
- + 2017.1.11: 为站点添加SSL, http -> https
- + 2017.1.9: 解决markdown换行问题
- + 2017.1.1: 增加AJAX功能, jQuery实现
+ + 2017.02.13: **[实验室-电影搜索器](http://slfweb.com/movie_search/)**定时爬取全站数据, 清洗后从Redis中访问
+ + 2017.01.11: 为站点添加SSL, http -> https
+ + 2017.01.09: 解决markdown换行问题
+ + 2017.01.01: 增加AJAX功能, jQuery实现
  + 2016.11.26: 增加**[实验室-电影搜索器](http://slfweb.com/movie_search/)**, 具体的项目请参考**[MovieCrawler](https://github.com/call-fold/MovieCrawler)**
  + 2016.08.21: 增加sites站点
  + 2016.08.21: 增加nginx和uWSGI
@@ -20,6 +21,7 @@
  - MySQL
  - nginx
  - jQuery
+ - Redis
  
 ## Pip List
 
@@ -28,6 +30,7 @@
  - Markdown (2.6.6)
  - PyMySQL (0.7.2)
  - uWSGI (2.0.13.1)
+ - redis (2.10.5)
  
 ## Tips
 
@@ -41,7 +44,7 @@
 ## 待解决问题
 
  + Disqus异步加载有些问题
- + 耗时长的搜索项, 有些不稳定
+ + ~~耗时长的搜索项, 有些不稳定~~
  + ~~电影搜索时, nginx会504超时, 待解决~~
  + ~~电影搜索时, 下方的disqus不要重载~~
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from MovieCrawler.Common.CrawlerToHTML import get_title_from_html, get_links_from_html_keyword
+
+from movie_crawler.common.crawler_to_html import get_title_from_html, get_links_from_html_keyword
 
 
 def get_movie_download_tuple(url, decode_type='utf-8'):
