@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from movie_crawler.movie_search_from_redis import get_movie_list
-from  movie_crawler.movie_search import get_search_url, get_total_movie_download_list
+from movie_crawler.movie_search import get_search_url, get_total_movie_download_list
 from article.models import Article
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
