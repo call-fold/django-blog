@@ -139,5 +139,9 @@ def movie_search(request):
     return render(request, 'movie_search.html')
 
 
+def movie_update(request):
+    return render(request, 'movie_update.html')
+
+
 def google_seo(request):
     return render(request, 'google0ddbc93a09800a50.html')
