@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from movie_crawler.movie_search_from_redis import get_movie_list
-from  movie_crawler.movie_search import get_search_url, get_total_movie_download_list
+from  movie_crawler.movie_search import get_search_url, get_total_movie_download_list, get_dytt_search_url
 from article.models import Article
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -79,7 +79,7 @@ def ajax_list(request):
             out_list.append('\n')
     else:
         # 数据库中没有, 直接去网上找
-        my_search_index_url = get_search_url('http://s.dydytt.net/plus/so.php?kwtype=0&searchtype=title&keyword=',
+        my_search_index_url = get_search_url(get_dytt_search_url(),
                                              input_name)
         search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
         if len(search_movie_download_list) != 0:
