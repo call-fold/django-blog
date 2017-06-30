@@ -79,7 +79,7 @@ def ajax_list(request):
             out_list.append('\n')
     else:
         # 数据库中没有, 直接去网上找
-        my_search_index_url = get_search_url('http://s.dydytt.net/plus/search.php?kwtype=0&searchtype=title&keyword=',
+        my_search_index_url = get_search_url('http://s.dydytt.net/plus/so.php?kwtype=0&searchtype=title&keyword=',
                                              input_name)
         search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
         if len(search_movie_download_list) != 0:
