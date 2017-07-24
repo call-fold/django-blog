@@ -8,6 +8,14 @@ import os
 import re
 
 
+def get_dytt_search_url():
+    return 'http://s.dydytt.net/plus/so.php?kwtype=0&searchtype=title&keyword='
+
+
+def get_none_resources_context():
+    return '没有找到合适的资源, 我也很无奈啊...╮(╯﹏╰)╭'
+
+
 def change_code_type(input_str, encode_type):
     real_input_str = input_str.encode(encode_type)
     return real_input_str
@@ -84,7 +92,7 @@ def get_total_movie_download_list(search_index_url, decode_type='utf-8', if_add_
 
 
 def do_movie_search(input_name, store_dir_path):
-    my_search_index_url = get_search_url('http://s.dydytt.net/plus/search.php?kwtype=0&searchtype=title&keyword=',
+    my_search_index_url = get_search_url(get_dytt_search_url(),
                                          input_name)
     search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
     print(input_name)
@@ -99,7 +107,7 @@ def do_movie_search(input_name, store_dir_path):
 
 def main():
     input_name = input('movie to search: ')
-    my_search_index_url = get_search_url('http://s.dydytt.net/plus/search.php?kwtype=0&searchtype=title&keyword=',
+    my_search_index_url = get_search_url(get_dytt_search_url(),
                                          input_name)
     search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
     print('num of searched movies: ' + str(len(search_movie_download_list)))

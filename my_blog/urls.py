@@ -28,6 +28,7 @@ urlpatterns = patterns('',
                        url(r'^google0ddbc93a09800a50.html/$', 'article.views.google_seo', name='google_seo'),
                        url(r'^laboratory/$', 'article.views.laboratory', name='laboratory'),
                        url(r'^movie_search/$', 'article.views.movie_search', name='movie_search'),
+                       url(r'^movie_update/$', 'article.views.movie_update', name='movie_update'),
                        url(r'^ajax_list/$', 'article.views.ajax_list', name='ajax-list'),
                        url(r'^movie_input_post/$', 'article.views.movie_input_post', name='movie_input_post'),
                        )

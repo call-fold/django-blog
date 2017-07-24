@@ -2,52 +2,52 @@
 
 {% load custom_markdown %}
 {% block content %}
-{% load disqus_tags %}
+    {% load disqus_tags %}
 
-<title>About Me</title>
+    <title>About Me</title>
 
-<h1><strong>About Me</strong></h1>
+    <h1><strong>About Me</strong></h1>
 
-<hr />
+    <hr/>
 
-<h3><strong>个人信息</strong></h3>
+    <h3><strong>个人信息</strong></h3>
 
-<ul>
-<li>苏铃峰 / 男 / 1994</li>
-<li>本科生 / 厦门大学机电工程系</li>
-<li>技术博客: <a href="https://slfweb.com">call-fold之家</a></li>
-<li>Github: <a href="https://github.com/call-fold">call-fold</a></li>
-</ul>
+    <ul>
+        <li>苏铃峰 / 男 / 1994</li>
+        <li>本科生 / 厦门大学机电工程系</li>
+        <li>技术博客: <a href="https://slfweb.com">call-fold之家</a></li>
+        <li>Github: <a href="https://github.com/call-fold">call-fold</a></li>
+    </ul>
 
-<h3><strong>联系方式</strong></h3>
+    <h3><strong>联系方式</strong></h3>
 
-<ul>
-<li>Email: slf568925701@gmail.com</li>
-<li>V2EX: <a href="https://www.v2ex.com/member/CallFold">CallFold</a></li>
-</ul>
+    <ul>
+        <li>Email: slf568925701@gmail.com</li>
+        <li>V2EX: <a href="https://www.v2ex.com/member/CallFold">CallFold</a></li>
+    </ul>
 
-<h3><strong>个人书单</strong></h3>
+    <h3><strong>个人书单</strong></h3>
 
-<ul>
-<li>在读书目: 《Hadoop技术内幕》(系列), 《Thinking in Java》, 《Java并发编程实战》, 《计算机网络（自顶向下方法）》</li>
-</ul>
+    <ul>
+        <li>在读书目: 《Hadoop技术内幕》(系列), 《Thinking in Java》, 《Java并发编程实战》, 《计算机网络（自顶向下方法）》</li>
+    </ul>
 
-<h3><strong>技术栈</strong></h3>
+    <h3><strong>技术栈</strong></h3>
 
-<ul>
-<li>Java, Hadoop (工作, 偶尔看看HBase和Zookeeper源码)</li>
-<li>C++, MPI并行计算 (已经不会写C++了, 虽然本来也不算会写...)</li>
-<li>Lua, JavaScript (HTML5游戏方向, 惭愧啊, 都忘得差不多了...)</li>
-<li>正在学习 Python, Django...弱鸡博客长成ing...</li>
-<li>学Go的计划已经推了1年了...</li>
-</ul>
+    <ul>
+        <li>Java, Hadoop (工作, 偶尔看看HBase和Zookeeper源码)</li>
+        <li>C++, MPI并行计算 (已经不会写C++了, 虽然本来也不算会写...)</li>
+        <li>Lua, JavaScript (HTML5游戏方向, 惭愧啊, 都忘得差不多了...)</li>
+        <li>正在学习 Python, Django...弱鸡博客长成ing...</li>
+        <li>学Go的计划已经推了1年了...</li>
+    </ul>
 
-<hr />
+    <hr/>
 
-{% disqus_show_comments %}
-{% disqus_num_replies %}
-{% disqus_recent_comments shortname num_items excerpt_length hide_avatars avatar_size %}
+    {% disqus_show_comments %}
+    {% disqus_num_replies %}
+    {% disqus_recent_comments shortname num_items excerpt_length hide_avatars avatar_size %}
 
-<div id="disqus_thread"></div>
+    <div id="disqus_thread"></div>
 
 {% endblock %}

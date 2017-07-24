@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load custom_markdown %}
+{% block content %}
+    {% load disqus_tags %}
+
+    <title>Movie Update</title>
+
+    <h1><strong>电影推荐</strong></h1>
+
+    <h2>还待更新...</h2>
+
+    {% disqus_show_comments %}
+    {% disqus_num_replies %}
+    {% disqus_recent_comments shortname num_items excerpt_length hide_avatars avatar_size %}
+
+    <div id="disqus_thread"></div>
+
+{% endblock %}
