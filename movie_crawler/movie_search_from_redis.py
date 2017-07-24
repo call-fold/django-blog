@@ -7,7 +7,7 @@ import redis
 strict_redis = redis.StrictRedis(host='127.0.0.1', port=6379, db=1, charset='GBK', decode_responses=True)
 
 
-def get_movie_list(pattern):
+def get_movie_db_list(pattern):
     pattern = ('*' + pattern + '*').encode('gbk')
     pattern = str(pattern).replace('\\x', '%')
     pattern = re.findall(r'b\'(.+?)\'', pattern)[0]
@@ -22,7 +22,7 @@ def get_movie_list(pattern):
 
 def main():
     movie_title = '海贼王'
-    movie_list = get_movie_list(movie_title)
+    movie_list = get_movie_db_list(movie_title)
     for movie in movie_list:
         print(movie)
 

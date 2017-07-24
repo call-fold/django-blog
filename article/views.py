@@ -2,8 +2,8 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-from movie_crawler.movie_search_from_redis import get_movie_list
-from movie_crawler.movie_search import get_search_url, get_total_movie_download_list, get_dytt_search_url
+from movie_crawler.movie_search_from_redis import get_movie_db_list
+from movie_crawler.movie_search import get_search_url, get_total_movie_download_list, get_dytt_search_url, get_none_resources_context
 from article.models import Article
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -68,29 +68,50 @@ def movie_input_post(request):
     return HttpResponse(message)
 
 
-def ajax_list(request):
-    input_name = input_movie_name
-    search_movie_download_list = get_movie_list(input_name)
+def union_two_list(list_db, list_search):
+    set_db = set(list_db)
+    set_search = set(list_search)
+    set_db.update(set_search)
+    return set_db
+
+
+def search_from_web(dytt_search_url, input_name):
     out_list = []
+    my_search_index_url = get_search_url(dytt_search_url,
+                                         input_name)
+    search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
     if len(search_movie_download_list) != 0:
         for download_link in search_movie_download_list:
             out_list.append(download_link)
-            out_list.append('\n')
-            out_list.append('\n')
     else:
-        # 数据库中没有, 直接去网上找
-        my_search_index_url = get_search_url(get_dytt_search_url(),
-                                             input_name)
-        search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
-        if len(search_movie_download_list) != 0:
-            for download_link in search_movie_download_list:
-                out_list.append(download_link)
-                out_list.append('\n')
-                out_list.append('\n')
-        else:
-            out_list.append('没有找到合适的资源, 我也很无奈啊...╮(╯﹏╰)╭')
+        out_list.append(get_none_resources_context())
+    return out_list
 
-    return JsonResponse(out_list, safe=False)
+
+def structure_list(_total_link_list):
+    _structure_total_list = []
+    for link in _total_link_list:
+        _structure_total_list.append(link)
+        _structure_total_list.append('\n')
+        _structure_total_list.append('\n')
+    return _structure_total_list
+
+
+def ajax_list(request):
+    input_name = input_movie_name
+    movie_db_list = get_movie_db_list(input_name)
+    db_list = []
+    for db_link in movie_db_list:
+        db_list.append(db_link)
+    search_list = search_from_web(get_dytt_search_url(), input_name)
+    total_link_set = union_two_list(db_list, search_list)
+    total_link_list = list(total_link_set)
+    # 数据库中有, 网页中没有
+    if get_none_resources_context() in total_link_list and len(total_link_list) > 1:
+        total_link_list = movie_db_list
+    # 结构化list
+    structure_total_list = structure_list(total_link_list)
+    return JsonResponse(structure_total_list, safe=False)
 
 
 def blog_search(request):

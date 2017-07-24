@@ -12,6 +12,10 @@ def get_dytt_search_url():
     return 'http://s.dydytt.net/plus/so.php?kwtype=0&searchtype=title&keyword='
 
 
+def get_none_resources_context():
+    return '没有找到合适的资源, 我也很无奈啊...╮(╯﹏╰)╭'
+
+
 def change_code_type(input_str, encode_type):
     real_input_str = input_str.encode(encode_type)
     return real_input_str
