@@ -103,14 +103,15 @@ def ajax_list(request):
     db_list = []
     for db_link in movie_db_list:
         db_list.append(db_link)
-    search_list = search_from_web(get_dytt_search_url(), input_name)
-    total_link_set = union_two_list(db_list, search_list)
-    total_link_list = list(total_link_set)
-    # 数据库中有, 网页中没有
-    if get_none_resources_context() in total_link_list and len(total_link_list) > 1:
-        total_link_list = movie_db_list
-    # 结构化list
-    structure_total_list = structure_list(total_link_list)
+    #search_list = search_from_web(get_dytt_search_url(), input_name)
+    #total_link_set = union_two_list(db_list, search_list)
+    #total_link_list = list(total_link_set)
+    ## 数据库中有, 网页中没有
+    #if get_none_resources_context() in total_link_list and len(total_link_list) > 1:
+    #    total_link_list = movie_db_list
+    ## 结构化list
+    #structure_total_list = structure_list(total_link_list)
+    structure_total_list = structure_list(db_list)
     return JsonResponse(structure_total_list, safe=False)
 
 
