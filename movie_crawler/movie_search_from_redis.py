@@ -4,7 +4,7 @@
 import re
 import redis
 
-strict_redis = redis.StrictRedis(host='127.0.0.1', port=6379, db=1, charset='GBK', decode_responses=True)
+strict_redis = redis.StrictRedis(host='127.0.0.1', port=6379, db=2, charset='GBK', decode_responses=True)
 
 
 def get_movie_db_list(pattern):
