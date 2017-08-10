@@ -98,6 +98,10 @@ def structure_list(_total_link_list):
     return _structure_total_list
 
 
+def solve_repeated_list(_list):
+    return list(set(_list))
+
+
 def judge_search_result(_list):
     judge_list = _list
     if 0 == len(judge_list):
@@ -113,8 +117,10 @@ def ajax_list(request):
         db_list.append(db_link)
     if 0 == len(db_list):
         search_list = search_from_web(get_dytt_search_url(), input_name)
+        search_list = solve_repeated_list(search_list)
         structure_total_list = structure_list(search_list)
     else:
+        db_list = solve_repeated_list(db_list)
         structure_total_list = structure_list(db_list)
     final_list = judge_search_result(structure_total_list)
     return JsonResponse(final_list, safe=False)
