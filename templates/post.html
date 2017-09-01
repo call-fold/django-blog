@@ -4,30 +4,32 @@
 
 {% block content %}
 
-<title class="post.title">{{post.title}}</title>
+    <title class="post.title">{{ post.title }}</title>
 
-<div class="posts">
+    <div class="posts">
         <section class="post">
             <header class="post-header">
                 <h2 class="post-title">{{ post.title }}</h2>
 
-                    <p class="post-meta">
-                        Time:  <a class="post-author" href="#">{{ post.date_time |date:"Y M d"}}</a> <a class="post-category post-category-js" href="{% url "search_tag" tag=post.category %}">{{ post.category|title }}</a>
-                    </p>
+                <p class="post-meta">
+                    Time: <a class="post-author" href="#">{{ post.date_time |date:"Y M d" }}</a> <a
+                        class="post-category post-category-js"
+                        href="{% url "search_tag" tag=post.category %}">{{ post.category|title }}</a>
+                </p>
             </header>
 
-                <div class="post-description">
-                    <p>
-                        {{ post.content | custom_markdown}}
-                    </p>
-                </div>
+            <div class="post-description">
+                <p>
+                    {{ post.content | custom_markdown }}
+                </p>
+            </div>
         </section>
-</div><!-- /.blog-post -->
+    </div><!-- /.blog-post -->
 
-{% disqus_show_comments %}
-{% disqus_num_replies %}
-{% disqus_recent_comments shortname num_items excerpt_length hide_avatars avatar_size %}
+    {% disqus_show_comments %}
+    {% disqus_num_replies %}
+    {% disqus_recent_comments shortname num_items excerpt_length hide_avatars avatar_size %}
 
-<div id="disqus_thread"></div>
+    <div id="disqus_thread"></div>
 
 {% endblock %}

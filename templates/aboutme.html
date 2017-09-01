@@ -2,56 +2,56 @@
 
 {% load custom_markdown %}
 {% block content %}
-{% load disqus_tags %}
+    {% load disqus_tags %}
 
-<title>About Me</title>
+    <title>About Me</title>
 
-<h1><strong>About Me</strong></h1>
+    <h1><strong>About Me</strong></h1>
 
-<hr />
+    <hr/>
 
-<h3><strong>个人信息</strong></h3>
+    <h3><strong>个人信息</strong></h3>
 
-<ul>
-<li>苏铃峰 / 男 / 1994</li>
-<li>本科生 / 厦门大学机电工程系</li>
-<li>技术博客: <a href="https://slfweb.com">call-fold之家</a></li>
-<li>Github: <a href="https://github.com/call-fold">call-fold</a></li>
-</ul>
+    <ul>
+        <li>苏铃峰 / 男 / 1994</li>
+        <li>本科生 / 厦门大学机电工程系</li>
+        <li>技术博客: <a href="https://slfweb.com">call-fold之家</a></li>
+        <li>Github: <a href="https://github.com/call-fold">call-fold</a></li>
+    </ul>
 
-<h3><strong>联系方式</strong></h3>
+    <h3><strong>联系方式</strong></h3>
 
-<ul>
-<li>Email: slf568925701@gmail.com</li>
-<li>V2EX: <a href="https://www.v2ex.com/member/CallFold">CallFold</a></li>
-</ul>
+    <ul>
+        <li>Email: slf568925701@gmail.com</li>
+        <li>V2EX: <a href="https://www.v2ex.com/member/CallFold">CallFold</a></li>
+    </ul>
 
-<h3><strong>个人书单</strong></h3>
+    <h3><strong>个人书单</strong></h3>
 
-<ul>
-<li>在读书目: 《Java并发编程实战》</li>
-</ul>
+    <ul>
+        <li>在读书目: 《Java并发编程实战》</li>
+    </ul>
 
-<h3><strong>技术栈</strong></h3>
+    <h3><strong>技术栈</strong></h3>
 
-<ul>
-<li>Java, Python, Shell</li>
-<li>Hadoop, HBase, Spark</li>
-<li>Django</li>
-</ul>
+    <ul>
+        <li>Java, Python, Shell</li>
+        <li>Hadoop, HBase, Spark</li>
+        <li>Django</li>
+    </ul>
 
-<h3><strong>Patch List</strong></h3>
-<ul>
-<li><a href="https://issues.apache.org/jira/browse/YARN-7007">YARN-7007</a></li>
-<li><a href="https://issues.apache.org/jira/browse/YARN-7062">YARN-7062</a></li>
-</ul>
+    <h3><strong>Patch List</strong></h3>
+    <ul>
+        <li><a href="https://issues.apache.org/jira/browse/YARN-7007">YARN-7007</a></li>
+        <li><a href="https://issues.apache.org/jira/browse/YARN-7062">YARN-7062</a></li>
+    </ul>
 
-<hr />
+    <hr/>
 
-{% disqus_show_comments %}
-{% disqus_num_replies %}
-{% disqus_recent_comments shortname num_items excerpt_length hide_avatars avatar_size %}
+    {% disqus_show_comments %}
+    {% disqus_num_replies %}
+    {% disqus_recent_comments shortname num_items excerpt_length hide_avatars avatar_size %}
 
-<div id="disqus_thread"></div>
+    <div id="disqus_thread"></div>
 
 {% endblock %}
