@@ -10,9 +10,9 @@ class Article(models.Model):
     date_time = models.DateTimeField(auto_now_add=True)  # 博客日期
     content = models.TextField(blank=True, null=True)  # 博客文章正文
 
-    def get_absolute_url(self):  # 获取URL并转换成url的表示格式
-        path = reverse('detail', kwargs={'id': self.id})
-        return "http://slfweb.com%s" % path
+    # def get_absolute_url(self):  # 获取URL并转换成url的表示格式
+    #     path = reverse('detail', kwargs={'id': self.id})
+    #     return "http://slfweb.com%s" % path
 
     # python2使用__unicode__, python3使用__str__
     def __str__(self):
